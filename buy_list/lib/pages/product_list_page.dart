@@ -19,9 +19,11 @@ class _ProductListPageState extends State<ProductListPage> {
     final markedItems = widget.group.items
         .where((item) => item.isCompleted)
         .toList();
+
     if (markedItems.isEmpty) return;
 
     final markedItem = markedItems.first;
+
     final updated = await showModalBottomSheet<bool>(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(0)),
