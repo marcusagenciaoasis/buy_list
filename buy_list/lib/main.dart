@@ -19,10 +19,8 @@ class MyApp extends StatelessWidget {
         '/create_shopping_list': (context) => const CreateShoppingListPage(),
         '/product_list': (context) => const ProductListPage(),
       },
-      theme: ThemeData(
-        colorScheme: .fromSeed(seedColor: Colors.deepPurple),
-      ),
-      home: const MyHomePage(title: 'Shopping List Home Page'),
+      theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
+      initialRoute: '/shopping_lists',
     );
   }
 }
@@ -45,16 +43,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
       body: Center(
-          
         child: Column(
-
           mainAxisAlignment: .center,
           children: [
             const Text('You have pushed the button this many times:'),
