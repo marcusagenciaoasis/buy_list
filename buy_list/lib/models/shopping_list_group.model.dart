@@ -21,4 +21,26 @@ class ShoppingListGroup {
     }
     return completedCount / items.length;
   }
+
+  double get unmarkedTotal {
+    return items
+        .where((item) => !item.isCompleted)
+        .fold(0.0, (sum, item) => sum + item.price);
+  }
+
+  double get markedTotal {
+    return items
+        .where((item) => item.isCompleted)
+        .fold(0.0, (sum, item) => sum + item.price);
+  }
+
+  double get totalPrice {
+    return items.fold(0, (sum, item) => sum + item.price);
+  }
+
+  void resetCompleted() {
+    for (final item in items) {
+      item.isCompleted = false;
+    }
+  }
 }

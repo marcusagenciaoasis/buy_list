@@ -1,5 +1,4 @@
 import 'package:buy_list/pages/create_shopping_list_page.dart';
-import 'package:buy_list/pages/product_list_page.dart';
 import 'package:buy_list/pages/shopping_lists_page.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +17,6 @@ class MyApp extends StatelessWidget {
       routes: {
         '/shopping_lists': (context) => const ShoppingListPage(),
         '/create_shopping_list': (context) => const CreateShoppingListPage(),
-        '/product_list': (context) => const ProductListPage(),
       },
       theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
       initialRoute: '/shopping_lists',
