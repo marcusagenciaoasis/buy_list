@@ -26,6 +26,16 @@ class _ShoppingListPageState extends State<ShoppingListPage> {
         ],
       ),
       body: SafeArea(child: Column(children: [])),
+
+      floatingActionButton: FloatingActionButton(
+        key: Key("addListBtn"),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(600)),
+        onPressed: () {
+          Navigator.pushNamed(context, '/create_shopping_list');
+        },
+        backgroundColor: Color(0xFF2195F2),
+        child: Icon(Icons.add, color: Colors.white),
+      ),
     );
   }
 }
