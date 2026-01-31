@@ -8,6 +8,55 @@ class ShoppingListGroupView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return ListView.builder(
+      padding: const EdgeInsets.all(12.0),
+      itemCount: shoppingLists.length,
+      itemBuilder: (context, index) {
+        final group = shoppingLists[index];
+        final progress = group.progress;
+        final completed = group.completedCount;
+        final total = group.items.length;
+
+        return Card(
+          margin: const EdgeInsets.only(bottom: 12.0),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+          child: InkWell(
+            borderRadius: BorderRadius.circular(4),
+            onTap: () => {},
+            child: Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(group.name),
+
+                      Text(
+                        '$completed/$total',
+                        style: TextStyle(color: Color(0xFF4CAF50)),
+                      ),
+                    ],
+                  ),
+
+                  SizedBox(height: 24),
+
+                  LinearProgressIndicator(
+                    value: progress,
+
+                    backgroundColor: Color(0xFF9E9E9E),
+
+                    valueColor: AlwaysStoppedAnimation<Color>(
+                      Color(0xFF4CAF50),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+      },
+    );
   }
 }
