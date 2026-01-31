@@ -10,5 +10,15 @@ class ShoppingListGroup {
   void addItem(ShoppingList item) {
     items.add(item);
   }
-  
+
+  int get completedCount {
+    return items.where((item) => item.isCompleted).length;
+  }
+
+  double get progress {
+    if (items.isEmpty) {
+      return 0;
+    }
+    return completedCount / items.length;
+  }
 }
