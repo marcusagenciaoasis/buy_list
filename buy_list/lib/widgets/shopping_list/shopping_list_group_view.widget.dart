@@ -2,9 +2,14 @@ import 'package:buy_list/models/shopping_list_group.model.dart';
 import 'package:flutter/material.dart';
 
 class ShoppingListGroupView extends StatelessWidget {
-  const ShoppingListGroupView({super.key, required this.shoppingLists});
+  const ShoppingListGroupView({
+    super.key,
+    required this.shoppingLists,
+    required this.onTapGroup,
+  });
 
   final List<ShoppingListGroup> shoppingLists;
+  final void Function(ShoppingListGroup) onTapGroup;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +27,7 @@ class ShoppingListGroupView extends StatelessWidget {
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
           child: InkWell(
             borderRadius: BorderRadius.circular(4),
-            onTap: () => {},
+            onTap: () => onTapGroup(group),
             child: Padding(
               padding: const EdgeInsets.all(12.0),
               child: Column(
