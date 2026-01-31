@@ -19,9 +19,7 @@ class _ProductListPageState extends State<ProductListPage> {
     final markedItems = widget.group.items
         .where((item) => item.isCompleted)
         .toList();
-    if (markedItems.isEmpty) {
-      return;
-    }
+    if (markedItems.isEmpty) return;
 
     final markedItem = markedItems.first;
     final updated = await showModalBottomSheet<bool>(
@@ -33,9 +31,7 @@ class _ProductListPageState extends State<ProductListPage> {
       builder: (ctx) => EditItem(item: markedItem),
     );
 
-    if (!mounted || updated != true) {
-      return;
-    }
+    if (!mounted || updated != true) return;
 
     setState(() {});
   }
