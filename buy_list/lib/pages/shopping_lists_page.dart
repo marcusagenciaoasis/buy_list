@@ -1,4 +1,5 @@
 import 'package:buy_list/models/shopping_list_group.model.dart';
+import 'package:buy_list/pages/product_list_page.dart';
 import 'package:buy_list/widgets/shopping_list/shopping_list_empty_view.widget.dart';
 import 'package:buy_list/widgets/shopping_list/shopping_list_group_view.widget.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +26,10 @@ class _ShoppingListPageState extends State<ShoppingListPage> {
   }
 
   Future<void> openGroupDetails(ShoppingListGroup group) async {
-    await Navigator.pushNamed(context, '/product_list', arguments: group);
+    await Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => ProductListPage(group: group)),
+    );
     if (!mounted) return;
 
     setState(() {});
