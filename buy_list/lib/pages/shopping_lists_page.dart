@@ -1,6 +1,6 @@
 import 'package:buy_list/models/shopping_list_group.model.dart';
-import 'package:buy_list/widgets/shopping_list_empty_view.widget.dart';
-import 'package:buy_list/widgets/shopping_list_group_view.widget.dart';
+import 'package:buy_list/widgets/shopping_list/shopping_list_empty_view.widget.dart';
+import 'package:buy_list/widgets/shopping_list/shopping_list_group_view.widget.dart';
 import 'package:flutter/material.dart';
 
 class ShoppingListPage extends StatefulWidget {
@@ -22,6 +22,13 @@ class _ShoppingListPageState extends State<ShoppingListPage> {
         shoppingLists.add(newList);
       });
     }
+  }
+
+  Future<void> openGroupDetails(ShoppingListGroup group) async {
+    await Navigator.pushNamed(context, '/product_list', arguments: group);
+    if (!mounted) return;
+
+    setState(() {});
   }
 
   @override
@@ -46,6 +53,7 @@ class _ShoppingListPageState extends State<ShoppingListPage> {
           : ShoppingListGroupView(
               shoppingLists: shoppingLists,
               key: Key("shoppingListCard"),
+              onTapGroup: openGroupDetails,
             ),
 
       floatingActionButton: FloatingActionButton(
