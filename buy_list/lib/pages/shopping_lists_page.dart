@@ -1,3 +1,4 @@
+import 'package:buy_list/models/shopping_list_group.model.dart';
 import 'package:flutter/material.dart';
 
 class ShoppingListPage extends StatefulWidget {
@@ -8,6 +9,7 @@ class ShoppingListPage extends StatefulWidget {
 }
 
 class _ShoppingListPageState extends State<ShoppingListPage> {
+  final List<ShoppingListGroup> shoppingLists = [];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +27,32 @@ class _ShoppingListPageState extends State<ShoppingListPage> {
           ),
         ],
       ),
-      body: SafeArea(child: Column(children: [])),
+      body: Padding(
+        padding: EdgeInsets.all(12.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Spacer(),
+            Image.asset(
+              'assets/images/lista-de-compras.png',
+              width: 140,
+              height: 100,
+            ),
+            SizedBox(height: 40),
+            Text(
+              'Crie sua primeira lista',
+              style: TextStyle(fontSize: 16),
+              textAlign: TextAlign.center,
+            ),
+            Text(
+              'Toque no botão azul',
+              style: TextStyle(fontSize: 16),
+              textAlign: TextAlign.center,
+            ),
+            Spacer(),
+          ],
+        ),
+      ),
 
       floatingActionButton: FloatingActionButton(
         key: Key("addListBtn"),
