@@ -13,6 +13,17 @@ class ShoppingListPage extends StatefulWidget {
 class _ShoppingListPageState extends State<ShoppingListPage> {
   final List<ShoppingListGroup> shoppingLists = [];
 
+  Future<void> addNewList() async {
+    final newList = await Navigator.pushNamed(context, '/create_shopping_list');
+    if (!mounted) return;
+
+    if (newList != null && newList is ShoppingListGroup) {
+      setState(() {
+        shoppingLists.add(newList);
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,7 +52,7 @@ class _ShoppingListPageState extends State<ShoppingListPage> {
         key: Key("addListBtn"),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(600)),
         onPressed: () {
-          Navigator.pushNamed(context, '/create_shopping_list');
+          addNewList();
         },
         backgroundColor: Color(0xFF2195F2),
         child: Icon(Icons.add, color: Colors.white),
