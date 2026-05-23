@@ -20,6 +20,9 @@ class ShoppingListItemsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final itemTextColor = theme.textTheme.bodyMedium?.color;
+    final completedItemTextColor = theme.disabledColor;
     return ListView.builder(
       padding: const EdgeInsets.only(bottom: 80),
       itemCount: items.length + 2,
@@ -76,14 +79,14 @@ class ShoppingListItemsView extends StatelessWidget {
           title: Text(
             item.name,
             style: TextStyle(
-              color: item.isCompleted ? Colors.black45 : Colors.black87,
+              color: item.isCompleted ? completedItemTextColor : itemTextColor,
             ),
           ),
           trailing: Text(
             'R\$ ${item.price.toStringAsFixed(2)}',
             style: TextStyle(
               fontWeight: FontWeight.w600,
-              color: item.isCompleted ? Colors.black45 : Colors.black87,
+              color: item.isCompleted ? completedItemTextColor : itemTextColor,
             ),
           ),
           onTap: () => onToggleItem(item),

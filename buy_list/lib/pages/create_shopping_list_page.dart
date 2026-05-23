@@ -31,7 +31,9 @@ class _CreateShoppingListPageState extends State<CreateShoppingListPage> {
   Widget build(BuildContext context) {
     final viewInsets = MediaQuery.of(context).viewInsets.bottom;
     return Scaffold(
-      backgroundColor: const Color(0xFF2195F2),
+      backgroundColor: Theme.of(context).brightness == Brightness.dark
+          ? Theme.of(context).scaffoldBackgroundColor
+          : const Color(0xFF2195F2),
       body: SafeArea(
         child: AnimatedPadding(
           padding: EdgeInsets.fromLTRB(20, 24, 20, 24 + viewInsets),
@@ -91,13 +93,7 @@ class _CreateShoppingListPageState extends State<CreateShoppingListPage> {
                       child: ElevatedButton(
                         key: Key("createListBtn"),
                         onPressed: createList,
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.white,
-                          foregroundColor: const Color(0xFF2195F2),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(24),
-                          ),
-                        ),
+
                         child: const Text('Criar'),
                       ),
                     ),

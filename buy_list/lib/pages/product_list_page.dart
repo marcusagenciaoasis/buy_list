@@ -64,10 +64,9 @@ class _ProductListPageState extends State<ProductListPage> {
     final markedTotal = widget.group.markedTotal;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color(0xFF4CAF50),
         foregroundColor: Colors.white,
         elevation: 1,
-        title: Text(widget.group.name),
+
         leading: IconButton(
           key: Key("backBtn"),
           icon: const Icon(Icons.arrow_back_ios),
@@ -101,8 +100,8 @@ class _ProductListPageState extends State<ProductListPage> {
         key: Key("addNewItemBtn"),
         onPressed: addItem,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(600)),
-        backgroundColor: const Color(0xFF2195F2),
-        label: const Text('Adicionar', style: TextStyle(color: Colors.white)),
+
+        label: const Text('Adicionar'),
       ),
     );
   }

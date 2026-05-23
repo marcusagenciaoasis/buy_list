@@ -47,15 +47,7 @@ class ShoppingListGroupView extends StatelessWidget {
 
                   SizedBox(height: 24),
 
-                  LinearProgressIndicator(
-                    value: progress,
-
-                    backgroundColor: Color(0xFF9E9E9E),
-
-                    valueColor: AlwaysStoppedAnimation<Color>(
-                      Color(0xFF4CAF50),
-                    ),
-                  ),
+                  LinearProgressIndicator(value: progress),
                 ],
               ),
             ),

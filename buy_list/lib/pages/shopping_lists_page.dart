@@ -1,4 +1,5 @@
 import 'package:buy_list/models/shopping_list_group.model.dart';
+import 'package:buy_list/pages/config.page.dart';
 import 'package:buy_list/pages/product_list_page.dart';
 import 'package:buy_list/widgets/shopping_list/shopping_list_empty_view.widget.dart';
 import 'package:buy_list/widgets/shopping_list/shopping_list_group_view.widget.dart';
@@ -43,12 +44,19 @@ class _ShoppingListPageState extends State<ShoppingListPage> {
         title: Text('Minhas listas', style: TextStyle(color: Colors.white)),
         centerTitle: true,
         elevation: 1,
-        backgroundColor: Color(0xFF4CAF50),
         actions: [
           IconButton(
             onPressed: () {},
             icon: Icon(Icons.diamond),
             color: Color(0xFFFFC107),
+          ),
+          IconButton(
+            onPressed: () {
+              Navigator.of(
+                context,
+              ).push(MaterialPageRoute(builder: (context) => ConfigPage()));
+            },
+            icon: Icon(Icons.settings, color: Colors.white),
           ),
         ],
       ),
@@ -66,7 +74,7 @@ class _ShoppingListPageState extends State<ShoppingListPage> {
         onPressed: () {
           addNewList();
         },
-        backgroundColor: Color(0xFF2195F2),
+
         child: Icon(Icons.add, color: Colors.white),
       ),
     );

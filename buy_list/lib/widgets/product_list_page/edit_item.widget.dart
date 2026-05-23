@@ -48,6 +48,11 @@ class _EditItemState extends State<EditItem> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final inputTextStyle = theme.brightness == Brightness.dark
+        ? theme.textTheme.bodyMedium
+        : null;
+
     return Padding(
       padding: EdgeInsets.only(
         left: 20,
@@ -65,10 +70,10 @@ class _EditItemState extends State<EditItem> {
               children: [
                 Text(
                   'Atualizar Item',
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xFF191919),
+                  style: theme.textTheme.titleLarge?.copyWith(
+                    color: theme.brightness == Brightness.light
+                        ? const Color(0xFF191919)
+                        : null,
                   ),
                 ),
                 Spacer(),
@@ -82,6 +87,7 @@ class _EditItemState extends State<EditItem> {
             SizedBox(height: 12),
             TextFormField(
               controller: nameController,
+              style: inputTextStyle,
               decoration: InputDecoration(
                 border: InputBorder.none,
                 hintText: 'Nome do item',
@@ -96,6 +102,7 @@ class _EditItemState extends State<EditItem> {
             ),
             TextFormField(
               controller: priceController,
+              style: inputTextStyle,
               decoration: InputDecoration(
                 border: InputBorder.none,
                 hintText: 'Preco',
@@ -125,7 +132,9 @@ class _EditItemState extends State<EditItem> {
                   onPressed: updateItem,
                   child: Text(
                     'Atualizar',
-                    style: TextStyle(color: Color(0xFF2196F3)),
+                    style: theme.brightness == Brightness.light
+                        ? const TextStyle(color: Color(0xFF2196F3))
+                        : null,
                   ),
                 ),
               ],

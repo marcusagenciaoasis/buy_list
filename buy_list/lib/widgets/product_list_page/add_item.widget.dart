@@ -33,6 +33,11 @@ class _AddItemState extends State<AddItem> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final inputTextStyle = theme.brightness == Brightness.dark
+        ? theme.textTheme.bodyMedium
+        : null;
+
     return Padding(
       padding: EdgeInsets.only(
         left: 20,
@@ -48,14 +53,7 @@ class _AddItemState extends State<AddItem> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  'Adicionar Item',
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black54,
-                  ),
-                ),
+                Text('Adicionar Item', style: theme.textTheme.titleLarge),
                 Spacer(),
                 IconButton(
                   onPressed: () => Navigator.of(context).pop(),
@@ -68,6 +66,7 @@ class _AddItemState extends State<AddItem> {
             TextFormField(
               key: Key("inputItem"),
               controller: nameController,
+              style: inputTextStyle,
               decoration: InputDecoration(
                 border: InputBorder.none,
                 hintText: 'Nome do item',
@@ -83,6 +82,7 @@ class _AddItemState extends State<AddItem> {
             TextFormField(
               key: Key("inputValue"),
               controller: priceController,
+              style: inputTextStyle,
               decoration: InputDecoration(
                 border: InputBorder.none,
                 hintText: 'R\$ 0,00',

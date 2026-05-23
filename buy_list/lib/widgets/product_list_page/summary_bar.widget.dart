@@ -44,13 +44,12 @@ class _SummaryColumn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final titleStyle = Theme.of(context).textTheme.labelSmall;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          title,
-          style: const TextStyle(fontSize: 12, color: Color(0xFF111111)),
-        ),
+        Text(title, style: titleStyle),
         const SizedBox(height: 4),
         Text(
           value,
